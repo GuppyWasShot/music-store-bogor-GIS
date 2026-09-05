@@ -14,12 +14,17 @@
 <body>
 <div id="map"></div>
 <script>
-    var map = L.map('map', {attributionControl: false}).setView([-6.54536, 106.814], 12);
+    var map = L.map('map', {
+        attributionControl: false,
+        minZoom: 11,
+        maxZoom: 14
+    }).setView([-6.54536, 106.814], 12);
     L.control.attribution({prefix: false}).addTo(map);
 
     // OpenStreetMap Base Map
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19,
+        minZoom: 11,
+        maxZoom: 14,
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
 
